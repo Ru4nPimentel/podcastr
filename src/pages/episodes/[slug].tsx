@@ -4,7 +4,6 @@ import parseISO from 'date-fns/parseISO';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { api } from '../../services/api';
 import converDurationToTimeString from '../../utils/converDurationToTimeString';
 
@@ -28,9 +27,7 @@ type EpisodeProps = {
   episode: Episode;
 };
 
-const episode = ({ episode }: EpisodeProps) => {
-  const route = useRouter();
-
+const Episode = ({ episode }: EpisodeProps) => {
   return (
     <div className={styles.episode}>
       <div className={styles.thumbnailContainer}>
@@ -97,4 +94,4 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   };
 };
 
-export default episode;
+export default Episode;
